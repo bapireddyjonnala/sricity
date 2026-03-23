@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora.ai - Legal Document Intelligence</title>
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo-section">
+      <div class="logo-icon">✨</div>
+      <div class="logo-text">
+        <h2>Aurora.ai</h2>
+        <p>Legal Document</p>
+        <p>Intelligence</p>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <h3 class="nav-title">Navigation</h3>
+      <a href="#" class="nav-link active" id="nav-dashboard-btn">
+        <i><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg></i>
+        Dashboard
+      </a>
+      <a href="#" class="nav-link" id="nav-analyze-btn">
+        <i><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg></i>
+        Analyze Document
+      </a>
+      <a href="#" class="nav-link" id="nav-library-btn">
+        <i><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></i>
+        Document Library
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <h3 class="nav-title">AI Features</h3>
+      <div class="ai-features-card">
+        <div class="ai-features-header">
+          <div class="header-icon">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+          </div>
+          <div>
+            <div>Smart Analysis</div>
+            <p>Powered by AI</p>
+          </div>
+        </div>
+        <ul class="ai-feature-list">
+          <li>Clause Detection</li>
+          <li>Risk Assessment</li>
+          <li>Plain Language</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="icon-wrapper">AI</div>
+      <h4>Legal AI Assistant</h4>
+      <p>Ready to analyze documents</p>
+    </div>
+  </aside>
+
+  <!-- MAIN WIDGET -->
+  <main class="main-wrapper">
+    <div class="topbar">
+      <div class="left"></div>
+      <div class="right">
+        <button class="topbar-btn btn-outline" id="clear-data-btn">
+          🗑 Clear Data
+        </button>
+      </div>
+    </div>
+
+    <!-- PAGE: DASHBOARD -->
+    <div class="content" id="page-dashboard">
+      <section class="hero-header">
+        <div class="hero-title">
+          <h1>Legal Intelligence</h1>
+        </div>
+        <p class="hero-subtitle">Transform complex legal documents into plain language insights with AI-powered analysis</p>
+        <div class="hero-actions">
+          <button class="btn-primary open-analyze-page-btn">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+            Analyze Document <span>→</span>
+          </button>
+          <span class="badge-ai">AI Ready - Real-time Analysis</span>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-content">
+            <div class="label">Total Documents</div>
+            <div class="value" id="stat-total-docs">0</div>
+          </div>
+          <div class="stat-icon" style="background:var(--info-bg);color:var(--info-color);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-content">
+            <div class="label">Completed Analyses</div>
+            <div class="value" id="stat-completed">0</div>
+          </div>
+          <div class="stat-icon" style="background:var(--success-bg);color:var(--success-color);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-content">
+            <div class="label">High Risk Documents</div>
+            <div class="value" id="stat-high-risk">0</div>
+          </div>
+          <div class="stat-icon" style="background:var(--danger-bg);color:var(--danger-color);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-content">
+            <div class="label">Avg Processing Time</div>
+            <div class="value" id="stat-avg-time">0.0s</div>
+          </div>
+          <div class="stat-icon" style="background:var(--purple-bg);color:var(--purple-color);">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- DASHBOARD WORKSPACE -->
+      <section class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Recent Documents</h3>
+            <button class="btn-outline" id="view-all-docs-btn">View All</button>
+          </div>
+          <div class="doc-list" id="doc-list-container">
+          </div>
+        </div>
+
+        <div>
+          <!-- Quick Actions -->
+          <div class="card" style="margin-bottom: 1.5rem;">
+            <div class="card-header">
+              <h3 class="card-title">
+                <svg width="18" height="18" fill="none" stroke="var(--primary-color)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                Quick Actions
+              </h3>
+            </div>
+            
+            <div class="action-list">
+              <a href="#" class="action-item action-item-primary open-analyze-page-btn">
+                <div class="action-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                </div>
+                <div class="action-content">
+                  <h4>Analyze Document</h4>
+                  <p>Upload and analyze a new document</p>
+                </div>
+              </a>
+
+              <a href="#" class="action-item action-item-secondary" id="dash-library-btn">
+                <div class="action-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <div class="action-content">
+                  <h4>Document Library</h4>
+                  <p>Browse your analyzed documents</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- AI Caps -->
+          <div class="card ai-caps">
+            <h4 style="margin-bottom: 1.5rem; display:flex; align-items:center; gap:0.5rem; color:var(--purple-color); font-weight:700;">
+              ✨ AI Capabilities
+            </h4>
+            <a href="#" class="action-item" style="border: 1px solid var(--border-color); text-decoration: none;" id="smart-risk-btn">
+              <div class="action-icon" style="background-color:var(--danger-color);width:32px;height:32px;">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+              </div>
+              <div class="action-content">
+                <h5 style="font-size:0.85rem;color:var(--text-primary);margin-bottom:0.2rem;">Smart Risk Detection</h5>
+                <p style="font-size:0.75rem;color:var(--text-secondary);">Click to view all High-Risk documents</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- PAGE: LIBRARY -->
+    <div class="content hidden" id="page-library">
+      <div class="analyze-page-header">
+        <div class="analyze-header-left">
+          <div>
+            <h2>Document Library</h2>
+            <p>Your previously analyzed legal documents</p>
+          </div>
+        </div>
+      </div>
+      <div class="library-grid" id="library-grid-container">
+      </div>
+    </div>
+
+    <!-- PAGE: ANALYZE -->
+    <div class="content hidden" id="page-analyze">
+      <div class="analyze-page-header">
+        <div class="analyze-header-left">
+          <button class="back-btn" id="analyze-back-btn">←</button>
+          <div>
+            <h2>Document Analysis</h2>
+            <p>Upload and analyze legal documents with AI</p>
+          </div>
+        </div>
+        <button class="btn-outline hidden" id="new-analysis-btn">New Analysis</button>
+      </div>
+
+      <div class="analyze-content-wrapper">
+        
+        <!-- 1. UPLOAD STATE -->
+        <div class="upload-dropzone" id="upload-state-card">
+          <div class="upload-icon-large">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+            <div class="upload-badge"></div>
+          </div>
+          
+          <h3>Upload Legal Document</h3>
+          <p>Drag & drop your legal document here or click to browse. Our AI will analyze it in seconds...</p>
+          
+          <div class="upload-action-row">
+            <button class="btn-primary" id="dropzone-browse-btn">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+              Choose Document
+            </button>
+            <span class="upload-hint">
+              <span class="green-dot"></span> Supports PDF, JPEG, PNG, WEBP • Max 10MB
+            </span>
+          </div>
+          
+          <div class="upload-features">
+            <div class="upload-feature-card">
+               <div class="ufc-icon ufc-green"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+               <h4>Smart Analysis</h4>
+               <p>AI identifies risks automatically</p>
+            </div>
+            <div class="upload-feature-card">
+               <div class="ufc-icon ufc-blue"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg></div>
+               <h4>Plain Language</h4>
+               <p>Legal terms translated simply</p>
+            </div>
+            <div class="upload-feature-card">
+               <div class="ufc-icon ufc-pink"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
+               <h4>Interactive Q&A</h4>
+               <p>Ask questions about your document</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. LOADING STATE -->
+        <div class="loading-state-card hidden" id="loading-state-card">
+          <div class="ls-icon-container">
+            <div class="ls-icon-spinner"></div>
+          </div>
+          <h3 class="ls-title" id="ls-dyn-title">Extracting Text</h3>
+          <p class="ls-subtitle" id="ls-dyn-subtitle">Reading document content...</p>
+          
+          <div class="ls-filename">
+            <span class="file-icon">📄</span> <span id="ls-filename-text">filename.pdf</span>
+          </div>
+        
+          <div class="ls-progress-container">
+            <div class="ls-progress-header">
+              <span>Processing Progress</span>
+              <span id="ls-progress-pct">0%</span>
+            </div>
+            <div class="ls-progress-bar-bg">
+              <div class="ls-progress-bar-fill" id="ls-progress-bar-fill"></div>
+            </div>
+          </div>
+        
+          <div class="ls-steps">
+            <div class="ls-step active" id="ls-step-1">
+              <div class="ls-step-icon">📄</div>
+              <div class="ls-step-text">
+                <h4>Extracting Text</h4>
+                <p>Reading document content...</p>
+              </div>
+              <div class="ls-step-loader" id="ls-ldr-1"></div>
+            </div>
+            <div class="ls-step" id="ls-step-2">
+              <div class="ls-step-icon">🧠</div>
+              <div class="ls-step-text">
+                <h4>AI Analysis</h4>
+                <p>Analyzing legal content and risks...</p>
+              </div>
+              <div class="ls-step-loader hidden" id="ls-ldr-2"></div>
+            </div>
+            <div class="ls-step" id="ls-step-3">
+              <div class="ls-step-icon">✅</div>
+              <div class="ls-step-text">
+                <h4>Analysis Complete</h4>
+                <p>Ready for review!</p>
+              </div>
+              <div class="ls-step-loader hidden" id="ls-ldr-3"></div>
+            </div>
+          </div>
+          
+          <div class="ls-footer">
+            🔒 Your document is processed securely and will be deleted after analysis
+          </div>
+        </div>
+
+        <!-- 3. BRAND NEW TABBED RESULT VIEW STATE -->
+        <div class="result-view-container hidden" id="result-view">
+          
+          <!-- LEFT MAIN CONTENT -->
+          <div class="result-main">
+            <!-- Header Card -->
+            <div class="res-header-card" id="res-header-card">
+              <div class="res-header-left">
+                <div class="res-header-icon" id="rh-icon">
+                  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="rs-title">
+                  <h2 id="doc-type-title">DOCUMENT NAME</h2>
+                  <div class="rs-meta">
+                    <span class="rs-badge-risk" id="doc-risk-badge">LOW RISK (10%)</span>
+                    <span><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Analysis Complete</span>
+                  </div>
+                </div>
+              </div>
+              <div class="res-header-actions">
+                <button class="btn-outline" id="download-btn">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg> Export
+                </button>
+                <button class="btn-outline" id="n8n-btn" style="color: #ec4899; border-color: #fbcfe8; background: #fdf2f8;">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> Automate (n8n)
+                </button>
+              </div>
+            </div>
+
+            <div class="res-tabs">
+              <div class="res-tab active" data-tab="tab-summary"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg> Summary</div>
+              <div class="res-tab" data-tab="tab-clauses"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg> Clauses (<span id="tab-clauses-count">0</span>)</div>
+              <div class="res-tab" data-tab="tab-risks"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg> Risks</div>
+            </div>
+
+            <div class="res-content-area">
+              <!-- Tab Pane: Summary -->
+              <div class="res-tab-pane active" id="tab-summary">
+                <h3 class="section-title"><i><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></i> Plain Language Summary</h3>
+                <p class="summ-text" id="doc-summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+
+                <div class="key-highlights-box hidden" id="highlights-box">
+                  <h4><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> Key Highlights</h4>
+                  <ul class="hl-list" id="doc-highlights">
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Tab Pane: Clauses -->
+              <div class="res-tab-pane" id="tab-clauses">
+                <h3 class="section-title"><i><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></i> Extracted Clauses</h3>
+                <div id="doc-clauses-container"></div>
+              </div>
+
+              <!-- Tab Pane: Risks -->
+              <div class="res-tab-pane" id="tab-risks">
+                <h3 class="section-title" style="color:var(--danger-color);"><i style="color:inherit;"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg></i> Identified Risks</h3>
+                <div id="doc-risks-container"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT SIDEBAR (AI Chat) -->
+          <aside class="result-sidebar">
+            <div class="chat-panel">
+              <div class="chat-header">
+                <div class="chat-header-title">
+                  <div class="chat-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg></div>
+                  AI Assistant
+                  <span class="badge-ai" style="padding:0.1rem 0.4rem;font-size:0.6rem;">Ready</span>
+                </div>
+              </div>
+              
+              <div class="chat-body">
+                <p class="chat-greet">Ask questions about your document</p>
+                <div class="chat-try-ask"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> Try asking:</div>
+                <button class="prompt-btn">What are the main risks in this document?</button>
+                <button class="prompt-btn">What are my obligations under this agreement?</button>
+                <button class="prompt-btn">Are there any hidden fees or costs?</button>
+              </div>
+
+              <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                  <input type="text" class="chat-input" placeholder="Ask a question..." id="chat-txt-input" />
+                  <button class="chat-send-btn" id="chat-send-btn">
+                    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                  </button>
+                </div>
+                <div class="chat-tip">
+                  <span style="color:#eab308;font-weight:bold;">💡 Tip:</span>
+                  Ask specific questions about clauses, obligations, risks, or terms you don't understand.
+                </div>
+              </div>
+            </div>
+          </aside>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <input type="file" id="fileNode" hidden accept="application/pdf,image/*,text/plain" />
+
+  <!-- GLOBAL FLOATING CHAT -->
+  <div class="floating-chat-btn" id="fc-trigger">
+    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+    <div class="fc-online-dot"></div>
+  </div>
+  <div class="floating-chat-window" id="fc-window">
+    <div class="fc-header">
+      <div class="fc-header-left">
+        <div class="fc-header-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+        </div>
+        <div class="fc-title">
+          <h4>Legal AI Assistant</h4>
+          <p><span class="dot"></span> Online & Ready</p>
+        </div>
+      </div>
+      <div class="fc-header-right">
+        <button class="fc-mute-btn" id="fc-mute-btn">
+           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+        </button>
+        <button class="fc-close" id="fc-close">
+           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div class="fc-body" id="fc-body">
+      <!-- initial state -->
+      <div class="fc-init-state" id="fc-init-state">
+        <div class="fc-big-icon">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </div>
+        <h3>Ask me anything!</h3>
+        <p>I can help you understand your legal documents</p>
+        
+        <div class="fc-prompts">
+          <button class="fc-prompt-btn" onclick="document.getElementById('fc-input').value=this.innerText">What documents do I have?</button>
+          <button class="fc-prompt-btn" onclick="document.getElementById('fc-input').value=this.innerText">Show me high-risk documents</button>
+          <button class="fc-prompt-btn" onclick="document.getElementById('fc-input').value=this.innerText">Summarize my documents</button>
+          <button class="fc-prompt-btn" onclick="document.getElementById('fc-input').value=this.innerText">What are common legal terms?</button>
+        </div>
+      </div>
+    </div>
+    <div class="fc-footer">
+      <div class="fc-input-area">
+        <input type="text" class="fc-input" id="fc-input" placeholder="Ask about your documents..." />
+        <button class="fc-btn fc-voice-btn" id="fc-voice-btn" title="Click to speak">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+        </button>
+        <button class="fc-btn fc-send-btn" id="fc-send-btn">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+        </button>
+      </div>
+      <div class="fc-footer-hint">Click mic icon to use voice input</div>
+    </div>
+  </div>
+
+  <script>
+    // PAGE ROUTING & STATE UI Toggling
+    const pageDashboard = document.getElementById('page-dashboard');
+    const pageAnalyze = document.getElementById('page-analyze');
+    const pageLibrary = document.getElementById('page-library');
+    
+    const analyzeStateUpload = document.getElementById('upload-state-card');
+    const analyzeStateLoading = document.getElementById('loading-state-card');
+    const analyzeStateResult = document.getElementById('result-view');
+    const newAnalysisBtn = document.getElementById('new-analysis-btn');
+
+    function navigateTo(pageId) {
+      pageDashboard.classList.add('hidden');
+      pageAnalyze.classList.add('hidden');
+      pageLibrary.classList.add('hidden');
+      document.getElementById('nav-dashboard-btn').classList.remove('active');
+      document.getElementById('nav-analyze-btn').classList.remove('active');
+      document.getElementById('nav-library-btn').classList.remove('active');
+
+      if(pageId === 'analyze') {
+        pageAnalyze.classList.remove('hidden');
+        document.getElementById('nav-analyze-btn').classList.add('active');
+        showAnalyzeMode('upload');
+      } else if (pageId === 'library') {
+        pageLibrary.classList.remove('hidden');
+        document.getElementById('nav-library-btn').classList.add('active');
+        renderLibrary();
+      } else {
+        pageDashboard.classList.remove('hidden');
+        document.getElementById('nav-dashboard-btn').classList.add('active');
+        renderState();
+      }
+    }
+
+    function showAnalyzeMode(mode) {
+      analyzeStateUpload.classList.add('hidden');
+      analyzeStateLoading.classList.add('hidden');
+      analyzeStateResult.classList.add('hidden');
+      newAnalysisBtn.classList.add('hidden');
+
+      if (mode === 'upload') analyzeStateUpload.classList.remove('hidden');
+      if (mode === 'loading') analyzeStateLoading.classList.remove('hidden');
+      if (mode === 'result') {
+        analyzeStateResult.classList.remove('hidden');
+        newAnalysisBtn.classList.remove('hidden');
+      }
+    }
+
+    // Navigation Bindings
+    document.querySelectorAll('.open-analyze-page-btn').forEach(btn => btn.addEventListener('click', (e) => { e.preventDefault(); navigateTo('analyze'); }));
+    document.getElementById('nav-analyze-btn').addEventListener('click', (e) => { e.preventDefault(); navigateTo('analyze'); });
+    document.getElementById('nav-dashboard-btn').addEventListener('click', (e) => { e.preventDefault(); navigateTo('dashboard'); });
+    document.getElementById('nav-library-btn').addEventListener('click', (e) => { e.preventDefault(); navigateTo('library'); });
+    document.getElementById('dash-library-btn').addEventListener('click', (e) => { e.preventDefault(); navigateTo('library'); });
+    document.getElementById('view-all-docs-btn').addEventListener('click', (e) => { e.preventDefault(); navigateTo('library'); });
+    document.getElementById('analyze-back-btn').addEventListener('click', () => navigateTo('dashboard'));
+    newAnalysisBtn.addEventListener('click', () => showAnalyzeMode('upload'));
+
+    function renderHistoricalResult(doc) {
+        currentChatId = doc.id;
+        document.getElementById('doc-type-title').innerText = doc.documentType || 'DOCUMENT';
+        let isHighRisk = doc.riskLevel === 'HIGH';
+        const badge = document.getElementById('doc-risk-badge');
+        const hCard = document.getElementById('res-header-card');
+        const hIcon = document.getElementById('rh-icon');
+        badge.innerText = doc.riskLevel + ' ('+(doc.riskPercent||'10%')+')';
+        if(isHighRisk) { hCard.className = 'res-header-card risk-high'; hIcon.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
+        } else { hCard.className = 'res-header-card'; hIcon.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>'; }
+
+        document.getElementById('doc-summary').innerText = doc.summary || 'No summary available.';
+        
+        // n8n Button Filter logic
+        const docTypeLower = (doc.documentType || "").toLowerCase();
+        const sumLower = (doc.summary || "").toLowerCase();
+        const n8nEligible = docTypeLower.includes('invoice') || docTypeLower.includes('payment') || docTypeLower.includes('receipt') || docTypeLower.includes('agreement') || sumLower.includes('due date') || sumLower.includes('payment');
+        document.getElementById('n8n-btn').style.display = n8nEligible ? 'inline-flex' : 'none';
+        
+        const validClauses = doc.clauses || [];
+        document.getElementById('tab-clauses-count').innerText = validClauses.length;
+        const highlightsBox = document.getElementById('highlights-box');
+        const highlightsUl = document.getElementById('doc-highlights');
+        highlightsUl.innerHTML = '';
+        if (doc.highlights && doc.highlights.length > 0) {
+            highlightsBox.classList.remove('hidden');
+            doc.highlights.forEach(hl => { const li = document.createElement('li'); li.innerText = hl; highlightsUl.appendChild(li); });
+        } else { highlightsBox.classList.add('hidden'); }
+
+        const clausesContainer = document.getElementById('doc-clauses-container');
+        clausesContainer.innerHTML = '';
+        if(validClauses.length === 0) { clausesContainer.innerHTML = '<p style="color:var(--text-secondary);">No specific clauses were identified.</p>';
+        } else { validClauses.forEach(clause => { let parts = clause.split(':'); let title = parts.length > 1 ? parts[0] : 'Clause'; let desc = parts.length > 1 ? parts.slice(1).join(':') : clause; const clv = document.createElement('div'); clv.className = 'clause-list-item'; clv.innerHTML = `<h5>${title.trim()}</h5><p>${desc.trim()}</p>`; clausesContainer.appendChild(clv); }); }
+
+        const validRisks = doc.risks || [];
+        const risksContainer = document.getElementById('doc-risks-container');
+        risksContainer.innerHTML = '';
+        if(validRisks.length === 0) { risksContainer.innerHTML = '<p style="color:var(--success-color);"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Thorough AI analysis identified no major risks or hidden liabilities.</p>';
+        } else { validRisks.forEach(risk => { let parts = risk.split(':'); let title = parts.length > 1 ? parts[0] : 'Identified Risk'; let desc = parts.length > 1 ? parts.slice(1).join(':') : risk; const rkv = document.createElement('div'); rkv.className = 'clause-list-item'; rkv.innerHTML = `<h5 style="color:var(--danger-color);">${title.trim()}</h5><p>${desc.trim()}</p>`; risksContainer.appendChild(rkv); }); }
+
+        document.querySelectorAll('.res-tab').forEach((t, i) => i === 0 ? t.classList.add('active') : t.classList.remove('active'));
+        document.querySelectorAll('.res-tab-pane').forEach((p, i) => i === 0 ? p.classList.add('active') : p.classList.remove('active'));
+        document.querySelector('.chat-body').innerHTML = `
+            <p class="chat-greet">Ask questions about your document</p>
+            <div class="chat-try-ask"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> Try asking:</div>
+            <button class="prompt-btn" onclick="document.getElementById('chat-txt-input').value=this.innerText">What are the main risks in this document?</button>
+            <button class="prompt-btn" onclick="document.getElementById('chat-txt-input').value=this.innerText">What are my obligations under this agreement?</button>
+            <button class="prompt-btn" onclick="document.getElementById('chat-txt-input').value=this.innerText">Are there any hidden fees or costs?</button>
+        `;
+        navigateTo('analyze');
+        showAnalyzeMode('result');
+    }
+    
+    document.getElementById('smart-risk-btn').addEventListener('click', (e) => { 
+        e.preventDefault(); 
+        navigateTo('library'); 
+        renderLibrary('HIGH'); 
+    });
+
+    function renderLibrary(filterRisk = null) {
+        const grid = document.getElementById('library-grid-container');
+        grid.innerHTML = '';
+        
+        // Dynamic Title based on filter
+        const headerTitle = document.querySelector('#page-library h2');
+        if(filterRisk === 'HIGH') {
+            headerTitle.innerText = "High-Risk Documents";
+            headerTitle.style.color = "var(--danger-color)";
+        } else {
+            headerTitle.innerText = "Document Library";
+            headerTitle.style.color = "inherit";
+        }
+
+        let sourceDocs = appState.history;
+        if (filterRisk) {
+            sourceDocs = sourceDocs.filter(d => d.riskLevel === filterRisk);
+        }
+
+        if(sourceDocs.length === 0) { 
+            grid.innerHTML = '<div class="lib-empty">No documents found matching this criteria!</div>'; 
+            return; 
+        }
+
+        sourceDocs.forEach(doc => {
+            const el = document.createElement('div');
+            el.className = 'lib-card';
+            let bClass = doc.riskLevel==='HIGH' ? 'risk-badge risk-high' : 'risk-badge risk-low';
+            el.innerHTML = `
+                <div class="lib-card-top">
+                    <div class="lib-title-wrap">
+                        <div class="lib-doc-type">${doc.documentType || 'Document'}</div>
+                        <h4>${doc.name}</h4>
+                        <p>${new Date(doc.date).toLocaleString()}</p>
+                    </div>
+                </div>
+                <div class="lib-card-body">${doc.summary || 'Click to view analysis'}</div>
+                <div class="lib-card-footer">
+                    <span class="${bClass}">${doc.riskLevel}</span>
+                    <button class="btn-outline" style="padding:0.4rem 0.8rem; font-size:0.75rem;">View Analysis</button>
+                </div>
+            `;
+            el.addEventListener('click', () => renderHistoricalResult(doc));
+            grid.appendChild(el);
+        });
+    }
+
+    // Dashboard State
+    let appState = JSON.parse(localStorage.getItem('auroraState')) || { total: 0, highRisk: 0, times: [], history: [] };
+    function saveState() { localStorage.setItem('auroraState', JSON.stringify(appState)); }
+    function renderState() {
+      document.getElementById('stat-total-docs').innerText = appState.total;
+      document.getElementById('stat-completed').innerText = appState.total;
+      document.getElementById('stat-high-risk').innerText = appState.highRisk;
+      
+      if (appState.times.length > 0) {
+        const avg = appState.times.reduce((a, b) => a + b, 0) / appState.times.length;
+        document.getElementById('stat-avg-time').innerText = avg.toFixed(1) + 's';
+      } else { document.getElementById('stat-avg-time').innerText = '0.0s'; }
+
+      const listContainer = document.getElementById('doc-list-container');
+      listContainer.innerHTML = '';
+      if (appState.history.length === 0) { listContainer.innerHTML = '<p style="color:var(--text-secondary); text-align:center; padding:2rem;">No documents analyzed yet.</p>'; return; }
+
+      appState.history.slice(0, 5).forEach(doc => {
+        const newItem = document.createElement('div');
+        newItem.className = 'doc-item';
+        newItem.style.cursor = 'pointer';
+        let badgeClass = doc.riskLevel === 'HIGH' ? 'risk-high' : 'risk-low';
+        newItem.innerHTML = `
+          <div class="doc-info">
+            <div class="doc-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/></svg></div>
+            <div class="doc-details">
+              <h4>${doc.name}</h4>
+              <p>${new Date(doc.date).toLocaleString()} • <span style="color:var(--text-secondary);">${doc.riskPercent} risk</span></p>
+            </div>
+          </div>
+          <div class="doc-status"><span class="risk-badge ${badgeClass}">${doc.riskLevel}</span></div>
+        `;
+        newItem.addEventListener('click', () => renderHistoricalResult(doc));
+        listContainer.appendChild(newItem);
+      });
+    }
+    renderState();
+
+    document.getElementById('clear-data-btn').addEventListener('click', () => {
+      if(confirm('Clear dashboard memory?')) {
+        appState = { total: 0, highRisk: 0, times: [], history: [] };
+        saveState(); renderState();
+      }
+    });
+
+    // RESULT TAB BINDINGS
+    document.querySelectorAll('.res-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            document.querySelectorAll('.res-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.res-tab-pane').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            document.getElementById(tab.getAttribute('data-tab')).classList.add('active');
+        });
+    });
+
+    // CHAT MOCK
+    document.querySelectorAll('.prompt-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.getElementById('chat-txt-input').value = btn.innerText;
+        })
+    });
+
+    // Upload Execution
+    const fileNode = document.getElementById('fileNode');
+    document.getElementById('dropzone-browse-btn').addEventListener('click', (e) => { e.preventDefault(); fileNode.click(); });
+    analyzeStateUpload.addEventListener('dragover', (e) => { e.preventDefault(); analyzeStateUpload.classList.add('dragover'); });
+    analyzeStateUpload.addEventListener('dragleave', () => analyzeStateUpload.classList.remove('dragover'));
+    analyzeStateUpload.addEventListener('drop', (e) => { e.preventDefault(); analyzeStateUpload.classList.remove('dragover'); if (e.dataTransfer.files.length) handleUpload(e.dataTransfer.files[0]); });
+    fileNode.addEventListener('change', (e) => { if (e.target.files.length) handleUpload(e.target.files[0]); fileNode.value=''; });
+
+    // Loading Fakers
+    let fakeProgressInterval;
+    function startLoadingAnimation(filename) {
+      showAnalyzeMode('loading');
+      document.getElementById('ls-filename-text').innerText = filename;
+      document.getElementById('ls-progress-pct').innerText = '0%';
+      document.getElementById('ls-progress-bar-fill').style.width = '0%';
+      
+      document.getElementById('ls-dyn-title').innerText = "Extracting Text";
+      document.getElementById('ls-dyn-subtitle').innerText = "Reading document content...";
+      
+      const s1 = document.getElementById('ls-step-1'); const l1 = document.getElementById('ls-ldr-1');
+      const s2 = document.getElementById('ls-step-2'); const l2 = document.getElementById('ls-ldr-2');
+      const s3 = document.getElementById('ls-step-3'); const l3 = document.getElementById('ls-ldr-3');
+      
+      s1.className = 'ls-step active'; l1.className = 'ls-step-loader'; l1.innerHTML = '';
+      s2.className = 'ls-step'; l2.className = 'ls-step-loader hidden'; l2.innerHTML = '';
+      s3.className = 'ls-step'; l3.className = 'ls-step-loader hidden'; l3.innerHTML = '';
+
+      let prog = 0;
+      fakeProgressInterval = setInterval(() => {
+        if(prog < 45) { prog += 5; }
+        else if(prog === 45) {
+          prog += 1;
+          s1.className = 'ls-step completed'; l1.className = 'ls-step-loader completed-tick'; l1.innerHTML = '✓';
+          s2.className = 'ls-step active'; l2.className = 'ls-step-loader';
+          document.getElementById('ls-dyn-title').innerText = "AI Analysis";
+          document.getElementById('ls-dyn-subtitle').innerText = "Analyzing legal content and risks...";
+        }
+        else if(prog < 94) { prog += 1; }
+        
+        document.getElementById('ls-progress-pct').innerText = prog + '%';
+        document.getElementById('ls-progress-bar-fill').style.width = prog + '%';
+      }, 150);
+    }
+    
+    function finalizeLoadingAnimation() {
+      clearInterval(fakeProgressInterval);
+      document.getElementById('ls-progress-pct').innerText = '100%';
+      document.getElementById('ls-progress-bar-fill').style.width = '100%';
+      document.getElementById('ls-dyn-title').innerText = "Analysis Complete";
+      document.getElementById('ls-dyn-subtitle').innerText = "Ready for review!";
+      document.getElementById('ls-step-2').className = 'ls-step completed'; 
+      document.getElementById('ls-ldr-2').className = 'ls-step-loader completed-tick'; 
+      document.getElementById('ls-ldr-2').innerHTML = '✓';
+      document.getElementById('ls-step-3').className = 'ls-step completed'; 
+      document.getElementById('ls-ldr-3').className = 'ls-step-loader completed-tick'; 
+      document.getElementById('ls-ldr-3').innerHTML = '✓';
+    }
+
+    let currentReportText = '';
+    let currentChatId = null;
+
+    async function handleUpload(file) {
+      startLoadingAnimation(file.name);
+      // Reset tabs to summary
+      document.querySelectorAll('.res-tab').forEach((t, i) => i === 0 ? t.classList.add('active') : t.classList.remove('active'));
+      document.querySelectorAll('.res-tab-pane').forEach((p, i) => i === 0 ? p.classList.add('active') : p.classList.remove('active'));
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('/api/classify', { method: 'POST', body: formData });
+        const data = await response.json();
+        
+        if (response.ok) {
+          finalizeLoadingAnimation();
+          
+          setTimeout(() => {
+            // POPULATE NEW RESULT VIEW UI
+            document.getElementById('doc-type-title').innerText = data.documentType;
+            
+            let riskLevel = 'LOW RISK';
+            let riskPercent = '10%';
+            
+            let isHighRisk = false;
+            let validRisks = (data.risks || []).filter(r => {
+                const text = r.toLowerCase();
+                return !(text.includes('no major risk') || text.includes('no hidden liabilit') || text.includes('none identified') || text.includes('no risks'));
+            });
+
+            if(validRisks.length > 0) { isHighRisk = true; riskLevel = 'HIGH RISK'; riskPercent = '85%'; appState.highRisk++; }
+            
+            const badge = document.getElementById('doc-risk-badge');
+            const hCard = document.getElementById('res-header-card');
+            const hIcon = document.getElementById('rh-icon');
+
+            badge.innerText = riskLevel + ' ('+riskPercent+')';
+            if(isHighRisk) {
+                hCard.className = 'res-header-card risk-high';
+                hIcon.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>';
+            } else {
+                hCard.className = 'res-header-card';
+                hIcon.innerHTML = '<svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>';
+            }
+
+            // Tabs Content Mapping
+            document.getElementById('doc-summary').innerText = data.summary || 'No summary available.';
+            
+            // n8n Button Filter logic
+            const docTypeLower = (data.documentType || "").toLowerCase();
+            const sumLower = (data.summary || "").toLowerCase();
+            const n8nEligible = docTypeLower.includes('invoice') || docTypeLower.includes('payment') || docTypeLower.includes('receipt') || docTypeLower.includes('agreement') || sumLower.includes('due date') || sumLower.includes('payment');
+            document.getElementById('n8n-btn').style.display = n8nEligible ? 'inline-flex' : 'none';
+            
+            let validClauses = (data.clauses || []).filter(c => {
+                const text = c.toLowerCase();
+                return !(text.includes('no clause') || text.includes('none found') || text.includes('not applicable') || text.includes('none identified'));
+            });
+            document.getElementById('tab-clauses-count').innerText = validClauses.length;
+            
+            // Highlights
+            const highlightsBox = document.getElementById('highlights-box');
+            const highlightsUl = document.getElementById('doc-highlights');
+            highlightsUl.innerHTML = '';
+            if (data.highlights && data.highlights.length > 0) {
+                highlightsBox.classList.remove('hidden');
+                data.highlights.forEach(hl => {
+                    const li = document.createElement('li'); li.innerText = hl; highlightsUl.appendChild(li);
+                });
+            } else {
+                highlightsBox.classList.add('hidden');
+            }
+
+            // Clauses List Tab
+            const clausesContainer = document.getElementById('doc-clauses-container');
+            clausesContainer.innerHTML = '';
+            if(!validClauses || validClauses.length === 0) {
+               clausesContainer.innerHTML = '<p style="color:var(--text-secondary);">No specific clauses were identified.</p>';
+            } else {
+               validClauses.forEach(clause => {
+                   let parts = clause.split(':');
+                   let title = parts.length > 1 ? parts[0] : 'Clause';
+                   let desc = parts.length > 1 ? parts.slice(1).join(':') : clause;
+                   const clv = document.createElement('div'); clv.className = 'clause-list-item';
+                   clv.innerHTML = `<h5>${title.trim()}</h5><p>${desc.trim()}</p>`;
+                   clausesContainer.appendChild(clv);
+               });
+            }
+
+            // Risks List Tab
+            const risksContainer = document.getElementById('doc-risks-container');
+            risksContainer.innerHTML = '';
+            if(!validRisks || validRisks.length === 0) {
+               risksContainer.innerHTML = '<p style="color:var(--success-color);"><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Thorough AI analysis identified no major risks or hidden liabilities.</p>';
+            } else {
+               validRisks.forEach(risk => {
+                   let parts = risk.split(':');
+                   let title = parts.length > 1 ? parts[0] : 'Identified Risk';
+                   let desc = parts.length > 1 ? parts.slice(1).join(':') : risk;
+                   const rkv = document.createElement('div'); rkv.className = 'clause-list-item';
+                   rkv.innerHTML = `<h5 style="color:var(--danger-color);">${title.trim()}</h5><p>${desc.trim()}</p>`;
+                   risksContainer.appendChild(rkv);
+               });
+            }
+
+            // Save Dashboard state
+            appState.total++;
+            appState.times.push(parseFloat(data.processingTime) || 0);
+            appState.history.unshift({ 
+                id: data.chatId,
+                name: file.name, 
+                date: Date.now(), 
+                riskLevel: isHighRisk ? 'HIGH' : 'LOW', 
+                riskPercent: riskPercent,
+                documentType: data.documentType,
+                summary: data.summary,
+                highlights: data.highlights,
+                clauses: validClauses,
+                risks: validRisks
+            });
+            saveState(); renderState();
+
+            // Export logic
+            currentReportText = "DOCUMENT TITLE: " + data.documentType + "\nRISK LEVEL: " + riskLevel + "\n\nSUMMARY:\n" + (data.summary || "") + "\n\nCLAUSES:\n" + (data.clauses || []).join('\n') + "\n\nRISKS:\n" + (data.risks || []).join('\n');
+            
+            currentChatId = data.chatId;
+
+            // Reset Chat UI
+            document.querySelector('.chat-body').innerHTML = `
+                <p class="chat-greet">Ask questions about your document</p>
+                <div class="chat-try-ask"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg> Try asking:</div>
+                <button class="prompt-btn" onclick="document.getElementById('chat-txt-input').value=this.innerText">What are the main risks in this document?</button>
+                <button class="prompt-btn" onclick="document.getElementById('chat-txt-input').value=this.innerText">What are my obligations under this agreement?</button>
+                <button class="prompt-btn" onclick="document.getElementById('chat-txt-input').value=this.innerText">Are there any hidden fees or costs?</button>
+            `;
+
+            showAnalyzeMode('result');
+
+            // Text-to-Speech (TTS) on Analysis Complete
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel(); // Stop any current speech
+                const speechText = "Analysis complete. Document Type: " + data.documentType + ". Risk Level: " + riskLevel + " at " + riskPercent + ". Here is a brief summary: " + (data.summary || "No summary available.");
+                const utterance = new SpeechSynthesisUtterance(speechText);
+                utterance.rate = 1.05;
+                utterance.pitch = 1.0;
+                
+                // Optional: try to grab a responsive english voice
+                let voices = window.speechSynthesis.getVoices();
+                if(voices.length) {
+                    const voice = voices.find(v => (v.name.includes('Female') || v.name.includes('Google US English') || v.lang === 'en-US'));
+                    if(voice) utterance.voice = voice;
+                }
+                
+                window.speechSynthesis.speak(utterance);
+            }
+          }, 800);
+        } else {
+          clearInterval(fakeProgressInterval);
+          alert('Error: ' + (data.details || data.error));
+          showAnalyzeMode('upload');
+        }
+      } catch (err) {
+        clearInterval(fakeProgressInterval);
+        alert('Upload failed. Is the server running?');
+        showAnalyzeMode('upload');
+      }
+    }
+
+    document.getElementById('download-btn').addEventListener('click', () => {
+      if (!currentReportText) return;
+      const blob = new Blob([currentReportText], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob); const a = document.createElement('a');
+      a.href = url; a.download = 'AuroraAI_Export.txt';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+    });
+
+    // n8n Trigger Execution
+    document.getElementById('n8n-btn').addEventListener('click', async () => {
+      if (!currentReportText) return;
+      
+      const btn = document.getElementById('n8n-btn');
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = 'Sending...';
+      
+      try {
+          const res = await fetch('/api/n8n-trigger', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ reportText: currentReportText, chatId: currentChatId })
+          });
+          const data = await res.json();
+          if(data.success) {
+              btn.innerHTML = '✓ Sent to n8n!';
+              btn.style.background = '#ecfdf5';
+              btn.style.color = '#10b981';
+              btn.style.borderColor = '#a7f3d0';
+          } else {
+              alert('Failed to send to n8n: ' + data.error);
+              btn.innerHTML = originalHtml;
+          }
+      } catch (e) {
+          alert('Network error while triggering n8n');
+          btn.innerHTML = originalHtml;
+      }
+      
+      setTimeout(() => {
+          btn.innerHTML = originalHtml;
+          btn.style.background = '#fdf2f8';
+          btn.style.color = '#ec4899';
+          btn.style.borderColor = '#fbcfe8';
+      }, 3000);
+    });
+
+    // Chat Execution Logic
+    const chatInput = document.getElementById('chat-txt-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    
+    async function sendChatMessage() {
+      const question = chatInput.value.trim();
+      if (!question || !currentChatId) return;
+      
+      const chatBody = document.querySelector('.chat-body');
+      
+      if(chatBody.querySelector('.chat-greet')) { chatBody.innerHTML = ''; }
+      
+      // Add User Message
+      const userMsg = document.createElement('div');
+      userMsg.style.cssText = "background:#eff6ff; color:#1e3a8a; padding:10px 12px; border-radius:12px 12px 0 12px; margin-bottom:12px; font-size:0.8rem; text-align:right; margin-left:20px; box-shadow:0 1px 2px rgba(0,0,0,0.05);";
+      userMsg.innerText = question;
+      chatBody.appendChild(userMsg);
+      chatInput.value = '';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      // Add Loading indicator
+      const loaderMsg = document.createElement('div');
+      loaderMsg.style.cssText = "font-size:0.75rem; color:#64748b; margin-bottom:12px; padding:4px;";
+      loaderMsg.innerText = "Analyzing document...";
+      chatBody.appendChild(loaderMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chatId: currentChatId, question })
+        });
+        const data = await res.json();
+        
+        loaderMsg.remove();
+        
+        const aiMsg = document.createElement('div');
+        aiMsg.style.cssText = "background:#f8fafc; color:#334155; padding:10px 12px; border-radius:12px 12px 12px 0; border:1px solid #e2e8f0; margin-bottom:12px; font-size:0.8rem; margin-right:20px; line-height:1.5; box-shadow:0 1px 2px rgba(0,0,0,0.05);";
+        aiMsg.innerText = data.answer || "Sorry, I couldn't generate an answer.";
+        chatBody.appendChild(aiMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      } catch (err) {
+        loaderMsg.remove();
+        alert('Failed to send message.');
+      }
+    }
+
+    chatSendBtn.addEventListener('click', sendChatMessage);
+    chatInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendChatMessage(); });
+
+    // --- GLOBAL FLOATING CHAT LOGIC ---
+    const fcTrigger = document.getElementById('fc-trigger');
+    const fcWindow = document.getElementById('fc-window');
+    const fcClose = document.getElementById('fc-close');
+    const fcBody = document.getElementById('fc-body');
+    const fcInput = document.getElementById('fc-input');
+    const fcSendBtn = document.getElementById('fc-send-btn');
+    const fcVoiceBtn = document.getElementById('fc-voice-btn');
+
+    fcTrigger.addEventListener('click', () => fcWindow.classList.add('active'));
+    fcClose.addEventListener('click', () => fcWindow.classList.remove('active'));
+
+    function addFcMsg(text, type) {
+        const msg = document.createElement('div');
+        msg.className = 'fc-msg ' + type;
+        msg.innerText = text;
+        fcBody.appendChild(msg);
+        fcBody.scrollTop = fcBody.scrollHeight;
+    }
+
+    async function sendGlobalChat() {
+        const question = fcInput.value.trim();
+        if(!question) return;
+        
+        const initState = document.getElementById('fc-init-state');
+        if(initState) initState.remove();
+
+        addFcMsg(question, 'user');
+        fcInput.value = '';
+        
+        const loader = document.createElement('div');
+        loader.className = 'fc-msg ai';
+        loader.style.color = '#94a3b8';
+        loader.innerText = 'Thinking...';
+        fcBody.appendChild(loader);
+        fcBody.scrollTop = fcBody.scrollHeight;
+
+        const docContext = appState.history.map(d => ({
+            name: d.name,
+            type: d.documentType,
+            riskLevel: d.riskLevel,
+            dateAnalyzed: new Date(d.date).toLocaleString()
+        }));
+
+        try {
+            const res = await fetch('/api/global-chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question, docContext })
+            });
+            const data = await res.json();
+            loader.remove();
+            
+            const answer = data.answer || "Sorry, I couldn't connect.";
+            addFcMsg(answer, 'ai');
+            
+            // TTS
+            if(window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(answer);
+                utter.rate = 1.0;
+                utter.pitch = 1.0;
+                window.speechSynthesis.speak(utter);
+            }
+        } catch(e) {
+            loader.remove();
+            addFcMsg("Error analyzing request.", 'ai');
+        }
+    }
+
+    fcSendBtn.addEventListener('click', sendGlobalChat);
+    fcInput.addEventListener('keypress', (e) => { if(e.key === 'Enter') sendGlobalChat(); });
+
+    // Voice Input Logic
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+
+        recognition.onstart = () => {
+            fcVoiceBtn.classList.add('recording');
+        };
+        recognition.onresult = (e) => {
+            fcVoiceBtn.classList.remove('recording');
+            const transcript = e.results[0][0].transcript;
+            fcInput.value = transcript;
+            sendGlobalChat();
+        };
+        recognition.onerror = () => fcVoiceBtn.classList.remove('recording');
+        recognition.onend = () => fcVoiceBtn.classList.remove('recording');
+
+        fcVoiceBtn.addEventListener('click', () => {
+            if(fcVoiceBtn.classList.contains('recording')) {
+                recognition.stop();
+            } else {
+                if(window.speechSynthesis) window.speechSynthesis.cancel(); // Stop talking if we are listening
+                recognition.start();
+            }
+        });
+    } else {
+        fcVoiceBtn.style.display = 'none'; // Hide if browser doesn't support
+    }
+  </script>
+</body>
+</html>
