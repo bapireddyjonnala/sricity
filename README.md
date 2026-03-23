@@ -24,12 +24,12 @@ graph TD
 
     UI[Client Browser<br/>Vanilla JS/HTML/CSS]:::frontend
 
-    subnode Backend Services
+    subgraph Backend [Backend Services]
         API_C[/api/classify]:::backend
         API_GC[/api/global-chat]:::backend
         API_DC[/api/chat]:::backend
         API_N8N[/api/n8n-trigger]:::backend
-    endsubnode
+    end
     
     UI -->|1. Upload Document| API_C
     UI -->|2. Contextual Query + Voice| API_GC
