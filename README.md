@@ -22,27 +22,27 @@ graph TD
     classDef ai fill:#a855f7,stroke:#7e22ce,stroke-width:2px,color:#fff;
     classDef external fill:#f97316,stroke:#b45309,stroke-width:2px,color:#fff;
 
-    UI[Client Browser<br/>Vanilla JS/HTML/CSS]:::frontend
+    UI["Client Browser<br/>Vanilla JS/HTML/CSS"]:::frontend
 
-    subgraph Backend [Backend Services]
-        API_C[/api/classify]:::backend
-        API_GC[/api/global-chat]:::backend
-        API_DC[/api/chat]:::backend
-        API_N8N[/api/n8n-trigger]:::backend
+    subgraph Backend ["Backend Services"]
+        API_C["/api/classify"]:::backend
+        API_GC["/api/global-chat"]:::backend
+        API_DC["/api/chat"]:::backend
+        API_N8N["/api/n8n-trigger"]:::backend
     end
     
-    UI -->|1. Upload Document| API_C
-    UI -->|2. Contextual Query + Voice| API_GC
-    UI -->|3. Query active document| API_DC
-    UI -->|4. Push to Workflow| API_N8N
+    UI -->|"1. Upload Document"| API_C
+    UI -->|"2. Contextual Query + Voice"| API_GC
+    UI -->|"3. Query active document"| API_DC
+    UI -->|"4. Push to Workflow"| API_N8N
     
-    API_C --> GEMINI[(Google Gemini API)]:::ai
+    API_C --> GEMINI[("Google Gemini API")]:::ai
     API_GC --> GEMINI
     API_DC --> GEMINI
     
-    GEMINI -->|Returns Structured JSON| Backend_Services
+    GEMINI -->|"Returns Structured JSON"| Backend
     
-    API_N8N --> N8N[n8n Instance / Make.com]:::external
+    API_N8N --> N8N["n8n Instance / Make.com"]:::external
 ```
 
 ---
